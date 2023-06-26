@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TOTAL SALES</title>
+    <link rel="stylesheet" href="../../Util/css/styles.css">
+</head>
+<?php
+require_once('../../Controller/QueriesController.php');
+
+$datos = new QueriesController();
+$result=$datos->totalSales();
+
+
+
+//print_r($result);
+?>
+<body>
+    <h1>TOTAL SALES</h1>
+    
+    <h2>Total, de departamentos Vendidos por el usuario PILAR PINO en Las Condes.</h2>
+    <link rel="stylesheet" href="../Util/css/styles.css">
+    <table>
+        <tr>
+            
+            <th>DESCRIPCION</th>
+            <th>TOTAL VENDIDOS</th>
+            
+        </tr>
+        <?php
+        foreach ($result as $row) {
+            ?>
+        <tr>
+            <td><?php echo $row["DESCRIPCION"]; ?></td>
+            <td><?php echo $row["TOTAL_VENDIDOS"]; ?></td>
+            
+        </tr>
+    <?php
+        }
+    ?>
+    </table>
+</body>
+</html>
