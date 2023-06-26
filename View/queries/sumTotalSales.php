@@ -17,8 +17,8 @@ $result=$datos->sumTotalSales();
 <body>
     <h1>TOTAL SALES</h1>
     
-    <h2>total de ventas realizadas en Santiago</h2>
-    <link rel="stylesheet" href="../Util/css/styles.css">
+    <p>total de ventas realizadas en Santiago<p>
+    
     <table>
         <tr>
             

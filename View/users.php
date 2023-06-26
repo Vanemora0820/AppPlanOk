@@ -2,17 +2,23 @@
 <html>
 <head>
     <title>Lista de usuarios</title>
+    <link rel="stylesheet" href="../Util/css/styles.css">
+
 </head>
 <?php
 require_once('../Controller/UserController.php');
 
 $datos = new UserController();
 $result = $datos->getUsers();
+include 'home.php';
 ?>
 <body>
-    <h1>Lista de usuarios</h1>
-    <link rel="stylesheet" href="../Util/css/styles.css">
-
+    
+    <h1 >Lista de usuarios</h1>
+    <br>
+    <p> Lista de usuarios del sistema con sus perfiles asociados</p>
+    <br>
+    
     <table>
         <thead>
             <tr>

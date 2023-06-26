@@ -17,8 +17,8 @@ $result=$datos->creationProduct();
 <body>
     <h1>PRODUCTOS VENDIDOS </h1>
     
-    <h2>Productos creados entre el 2018-01-03 y 2018-01-20</h2>
-    <link rel="stylesheet" href="../Util/css/styles.css">
+    <p>Productos creados entre el 2018-01-03 y 2018-01-20</p>
+    
     <table>
         <tr>
             <th>ID_PRODUCTO</th>

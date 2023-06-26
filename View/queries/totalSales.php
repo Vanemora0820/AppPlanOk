@@ -17,8 +17,8 @@ $result=$datos->totalSales();
 <body>
     <h1>TOTAL SALES</h1>
     
-    <h2>Total, de departamentos Vendidos por el usuario PILAR PINO en Las Condes.</h2>
-    <link rel="stylesheet" href="../Util/css/styles.css">
+    <p>Total de departamentos Vendidos por el usuario PILAR PINO en Las Condes.</p>
+    
     <table>
         <tr>
             

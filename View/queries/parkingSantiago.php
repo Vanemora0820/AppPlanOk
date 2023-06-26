@@ -18,8 +18,8 @@ $result =$datos->getParking();
     <h1>PARKING SANTIAGO</h1>
     
 
-    <h2>Listado de clientes que han comprado estacionamientos en Santiago.</h2>
-    <link rel="stylesheet" href="../Util/css/styles.css">
+    <p>Listado de clientes que han comprado estacionamientos en Santiago.<p>
+    
     <table>
         <tr>
             <th>ID_COTIZACIÓN</th>
