@@ -11,7 +11,8 @@ include '../Model/Conexion.php';
         //  llamar SP
         $query = "CALL GetQuoteDetail(".$id.")";
         $response = $conexion->query($query);
-        return $response;
+        $rows = $response->fetch_all(MYSQLI_ASSOC);
+        return $rows;
         
     }
 }

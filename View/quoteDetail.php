@@ -9,8 +9,9 @@ require_once('../Controller/QuoteDetailController.php');
 include 'home.php'; ;
 
 $datos = new QuoteDetailController();
-$result = mysqli_fetch_array($datos->showQuoteDetail($_GET["id"]));
-
+$result = $datos->showQuoteDetail($_GET["id"]);
+$cont=0;
+     
 //print_r($result);
 ?>
 <body>
@@ -35,17 +36,27 @@ $result = mysqli_fetch_array($datos->showQuoteDetail($_GET["id"]));
             <th>Total</th>
             <th>Estado</th>
         </tr>
-        <tr>
-            <td><?php echo $result["COTIZACIÓN_ID"]; ?></td>
-            <td><?php echo $result["FECHA"]; ?></td>
-            <td><?php echo $result["CRÉDITO"]; ?></td>
-            <td><?php echo "$" .$result["MONTO_CRÉDITO"]; ?></td>
-            <td><?php echo "$" .$result["SUBTOTAL"]; ?></td>
-            <td><?php echo $result["DESCUENTO"]; ?></td>
-            <td><?php echo "$" .$result["TOTAL"]; ?></td>
-            <td><?php echo $result["ESTADO"]; ?></td>
-            
-        </tr>
+        <?php
+        foreach ($result as $row) {
+            if($cont == 0){
+            ?>
+                <tr>
+                    <td><?php echo $row["COTIZACIÓN_ID"]; ?></td>
+                    <td><?php echo $row["FECHA"]; ?></td>
+                    <td><?php echo $row["CRÉDITO"]; ?></td>
+                    <td><?php echo "$" .$row["MONTO_CRÉDITO"]; ?></td>
+                    <td><?php echo "$" .$row["SUBTOTAL"]; ?></td>
+                    <td><?php echo $row["DESCUENTO"]; ?></td>
+                    <td><?php echo "$" .$row["TOTAL"]; ?></td>
+                    <td><?php echo $row["ESTADO"]; ?></td>
+                    
+                </tr>
+            <?php
+            $cont++;
+            }
+        }
+    ?>
+
     </table>
     <br>
     <h2>Datos del Cliente</h2>
@@ -58,11 +69,12 @@ $result = mysqli_fetch_array($datos->showQuoteDetail($_GET["id"]));
             <th>Teléfono</th>
         </tr>
         <tr>
-            <td><?php echo $result['NOMBRE_CLIENTE']; ?></td>
-            <td><?php echo $result['RUT_CLIENTE']; ?></td>
-            <td><?php echo $result['CORREO_CLIENTE']; ?></td>
-            <td><?php echo $result['TELEFONO_CLIENTE']; ?></td>
+            <td><?php echo $row['NOMBRE_CLIENTE']; ?></td>
+            <td><?php echo $row['RUT_CLIENTE']; ?></td>
+            <td><?php echo $row['CORREO_CLIENTE']; ?></td>
+            <td><?php echo $row['TELEFONO_CLIENTE']; ?></td>
         </tr>
+ 
     </table>
     <br>
     <h2>Productos</h2>
@@ -75,19 +87,26 @@ $result = mysqli_fetch_array($datos->showQuoteDetail($_GET["id"]));
             <th>Valor</th>
             <th>Sector</th>
         </tr>
-        
+        <?php
+        foreach ($result as $row) {
+        ?>
             <tr>
-                <td><?php echo $result['PRODUCTO_ID']; ?></td>
-                <td><?php echo $result['DESCRIPCIÓN_PRODUCTO']; ?></td>
-                <td><?php echo $result['TIPO_PRODUCTO']; ?></td>
-                <td><?php echo "$" .$result['VALOR_PRODUCTO']; ?></td>
-                <td><?php echo $result['SECTOR_PRODUCTO']; ?></td>
+                <td><?php echo $row['PRODUCTO_ID']; ?></td>
+                <td><?php echo $row['DESCRIPCIÓN_PRODUCTO']; ?></td>
+                <td><?php echo $row['TIPO_PRODUCTO']; ?></td>
+                <td><?php echo "$" .$row['VALOR_PRODUCTO']; ?></td>
+                <td><?php echo $row['SECTOR_PRODUCTO']; ?></td>
             </tr>
-       
+        <?php
+        }
+    ?>
     </table>
+    
     <br>
     <h2>Usuario que Cotizó</h2>
     <br>
-    <p><?php echo $result['NOMBRE_USUARIO']; ?></p>
+    
+    <p><?php echo $row['NOMBRE_USUARIO']; ?></p>
+   
 </body>
 </html>

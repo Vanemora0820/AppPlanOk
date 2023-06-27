@@ -15,7 +15,7 @@ class QueriesController{
         FROM cotizacion co
     INNER JOIN cotizacion_producto cp on co.idCotizacion = cp.idCotizacion
     INNER JOIN cliente c ON co.idCliente = c.id
-    LEFT JOIN producto p ON p.idProducto = cp.idProducto
+    INNER JOIN producto p ON p.idProducto = cp.idProducto
     INNER JOIN tipo_producto tp ON tp.idTipoProducto = p.idTipoProducto
     WHERE p.estado ='VENDIDO' AND tp.idTipoProducto =2 AND p.sector = 'Santiago';";
          
