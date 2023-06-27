@@ -3,6 +3,11 @@
 <head>
     <title>PRODUCTOS VENDIDOS</title>
     <link rel="stylesheet" href="../../Util/css/styles.css">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </head>
 <?php
 require_once('../../Controller/QueriesController.php');
@@ -15,7 +20,9 @@ $result=$datos->creationProduct();
 //print_r($result);
 ?>
 <body>
+<button class="back-button" onclick="goBack()">Atrás</button>
     <h1>PRODUCTOS VENDIDOS </h1>
+    
     
     <p>Productos creados entre el 2018-01-03 y 2018-01-20</p>
     
